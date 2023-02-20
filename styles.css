@@ -6,9 +6,16 @@ body{
 }
 
 #grid-container{
+    width: 620px;
+    height: 620px;
     display: grid;
-    grid-template-columns: repeat(16, 25px);
-    grid-template-rows: repeat(16, 25px);
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(16, auto);
     margin: 30px;
-    border: ;
+}
+
+#squares-number{
+    margin: 30px;
+    padding: 8px;
+    border-radius: 10px;
 }
