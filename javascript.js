@@ -11,7 +11,7 @@ function createSquare(){
     return gridSquare;
 }
 
-function createGrid(){
+function scaleGrid(){
     const gridContainer = document.getElementById("grid-container");
     gridContainer.style.gridTemplateColumns = `repeat(${scale}, auto)`;
     gridContainer.style.gridTemplateRows = `repeat(${scale}, auto)`;
@@ -20,43 +20,31 @@ function createGrid(){
     };
 }
 
-/*function askNewScale(){
+function askNewScale(){
     let newScale=prompt("Please enter a number from 1 to 100", "");
     parseInt(newScale, 10);
     if(isNaN(newScale)===false){
-        if((newScale<=100) || (newScale>=1)){
-            return newScale;
+        if((newScale<=100) && (newScale>=1)){
+            scale=newScale;
+            return true;
         }else {
             alert("Must be between 1 - 100");
-        }return false;
+            return false;
+        }
     }else if (isNaN(newScale)){
         alert("Must be a numeric value");
         return false;
     }
 }
 
-function gridDelete(grid){
-    for(let i=0;i<(scale*scale);i++){
-        grid.remove();
-    };
-}*/
+scaleGrid();
 
-createGrid();
-
-/*const changeGridBtn = document.getElementById("change-grid");
-changeGridBtn.addEventListener('click', e => {
-    const gridContainer = document.getElementById("grid-container");
-    let a=askNewScale();
-    console.log(a);
-    gridDelete(gridContainer);
-    createGrid();
-})*/
-
-/*
-function generateNewGrid(n){
-    for(let i=0;i<(n*n);i++){
-        const gridSquare = document.createElement("div");
-        gridSquare.remove();
-    };
-
-*/
+const changeGridBtn = document.getElementById("change-grid");
+changeGridBtn.addEventListener('click', () => {
+    if(askNewScale()){
+        //const gridContainer = document.getElementById("grid-container");
+        //gridContainer.remove();
+        scaleGrid();
+    }
+    //cómo borrar el grid actual o actualizarlo, ahora se acumulkan en el grid los elementos
+})
