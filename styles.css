@@ -1,3 +1,8 @@
+:root{
+    --grid-cols: 16;
+    --grid-rows: 16;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -9,8 +14,8 @@ body{
     width: 620px;
     height: 620px;
     display: grid;
-    grid-template-columns: repeat(16, auto);
-    grid-template-rows: repeat(16, auto);
+    grid-template-columns: repeat(var(--grid-cols), auto);
+    grid-template-rows: repeat(var(--grid-rows), auto);
     margin: 30px;
 }
 

@@ -13,8 +13,8 @@ function createSquare(){
 
 function scaleGrid(){
     const gridContainer = document.getElementById("grid-container");
-    gridContainer.style.gridTemplateColumns = `repeat(${scale}, auto)`;
-    gridContainer.style.gridTemplateRows = `repeat(${scale}, auto)`;
+    gridContainer.style.setProperty('--grid-cols', scale);
+    gridContainer.style.setProperty('--grid-rows', scale);
     for(let i=0;i<(scale*scale);i++){
         gridContainer.appendChild(createSquare());
     };
@@ -25,8 +25,7 @@ function askNewScale(){
     parseInt(newScale, 10);
     if(isNaN(newScale)===false){
         if((newScale<=100) && (newScale>=1)){
-            scale=newScale;
-            return true;
+            return newScale;
         }else {
             alert("Must be between 1 - 100");
             return false;
@@ -41,10 +40,8 @@ scaleGrid();
 
 const changeGridBtn = document.getElementById("change-grid");
 changeGridBtn.addEventListener('click', () => {
-    if(askNewScale()){
-        //const gridContainer = document.getElementById("grid-container");
-        //gridContainer.remove();
-        scaleGrid();
-    }
-    //cómo borrar el grid actual o actualizarlo, ahora se acumulkan en el grid los elementos
-})
+    const gridContainer = document.getElementById("grid-container");
+    gridContainer.innerHTML= '';
+    scale=askNewScale();
+    scaleGrid();
+    })
