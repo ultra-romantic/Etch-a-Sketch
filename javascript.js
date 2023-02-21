@@ -45,3 +45,5 @@ changeGridBtn.addEventListener('click', () => {
     scale=askNewScale();
     scaleGrid();
     })
+
+//future updates: add random color, set back to white , 10% more black 
